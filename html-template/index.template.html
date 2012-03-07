@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <!-- 
+    Smart developers always View Source. 
+    
+    This application was built using Adobe Flex, an open source framework
+    for building rich Internet applications that get delivered via the
+    Flash Player or to desktops via Adobe AIR. 
+    
+    Learn more about Flex at http://flex.org 
+    // -->
+    <head>
+        <title>${title}</title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and 
+             the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as 
+             the percentage of the height of its parent container, which has to be set explicitly.  Fix for
+             Firefox 3.6 focus border issues.  Initially, don't display flashContent div so it won't show 
+             if JavaScript disabled.
+        -->
+        <style type="text/css" media="screen"> 
+            html, body  { height:100%; }
+            body { margin:0; padding:0; overflow:auto; text-align:center; 
+                   background-color: ${bgcolor}; }   
+            object:focus { outline:none; }
+            #flashContent { display:none; }
+        </style>
+        
+        
+        
+        
+        <script language="JavaScript" type="text/javascript">
+	<!--
+	// -----------------------------------------------------------------------------
+	// Globals
+	// Major version of Flash required
+	var requiredMajorVersion = 10;
+	// Minor version of Flash required
+	var requiredMinorVersion = 0;
+	// Minor version of Flash required
+	var requiredRevision = 0;
+	// -----------------------------------------------------------------------------
+
+	function thisMovie(id) 
+	{
+	   var movieObject = null;
+	   if (navigator.appName.indexOf("Microsoft") != -1) 
+	   {   
+	        movieObject = document.getElementById(id);
+	   }
+	   else 
+	   {
+	      if(document[id].length != undefined)
+	      {
+	          movieObject = document[id][1];
+	      }
+	      else
+	          movieObject = document[id];
+	   }
+	   return movieObject;
+	}
+	
+	function style(){
+		thisMovie("${application}").setStyle("play","images/play.png");
+		thisMovie("${application}").setStyle("suspend","images/suspend.png");
+	}
+
+	function setdata(){
+	//模拟数据格式
+		var data='{"xField":"Exposure","yField":"Click","radiusField":"Cost","colorField":"CTR","displayName":"MediaName","slidingShaft":"Date",'+
+				'"columns":[["date","Date"],["string","MediaName"],["number","Exposure"],["number","Click"],["number","Cost"],["percent","CTR"],["number","CPC"],["enum","Location"]],'+
+				'"rows":[["2011-2-2","Sina",15181153,28322,346,0.001865603,0.012216651,"West"],'+
+				'["2011-1-1","Sina",15220453,7302,1767,0.000479749,0.241988496,"East"],'+
+				'["2011-3-3","Sina",14913147,6016,877,0.000403402,0.145777926,"Center"],'+
+				'["2011-3-3","Sina",14913147,6016,877,0.000403402,0.145777926,"right"],'+
+				
+				'["2011-1-1","SOHU",13215968,59266,42,0.004484424,0.000708669,"East"],'+
+				'["2011-3-3","SOHU",13246085,23329,1472,0.0017612,0.063097432,"Center"],'+
+				'["2011-2-2","SOHU",13304758,4496,72,0.000337924,0.016014235,"West"],'+
+				
+				'["2011-2-2","QQ",12477602,58687,848,0.004703388,0.014449537,"West"],'+
+				'["2011-3-3","QQ",12416152,2291,0,0.000184518,0.0,"Center"],'+
+				'["2011-1-1","QQ",12492286,65722,7,0.005261007,0.000106509,"East"],'+
+				
+				'["2011-3-3","Baidu",11425658,5051,1351,0.000442075,0.267471788,"Center"],'+
+				'["2011-1-1","Baidu",11234227,2273,515,0.000197889,0.226572811,"East"],'+
+				'["2011-2-2","Baidu",11446680,7542,1458,0.000658881,0.193317422,"West"],'+
+				
+				'["2011-3-3","Baidu2",11425658,5051,1351,0.000442075,0.267471788,"Center"],'+
+				'["2011-1-1","Baidu2",11486227,2273,515,0.000197889,0.226572811,"East"],'+
+				'["2011-2-2","Baidu2",11446680,7542,1458,0.000658881,0.193317422,"West"],'+
+				
+				'["2011-3-3","Baidu3",11425658,5051,1351,0.000442075,0.267471788,"Center"],'+
+				'["2011-1-1","Baidu3",11486227,2273,515,0.000197889,0.226572811,"East"],'+
+				'["2011-2-2","Baidu3",11446680,7542,1458,0.000658881,0.193317422,"West"],'+
+				
+				'["2011-2-2","MSN",9363155,5182,1283,0.000553446,0.247587804,"West"],'+
+				'["2011-1-1","MSN",9368712,26619,639,0.002841266,0.02400541,"East"],'+
+				'["2011-3-3","MSN",9339946,4421,1012,0.000473343,0.228907487,"Center"]]}';
+	thisMovie("${application}").receiveData(eval("data="+data));
+	//alert(data);
+	} 
+	
+	var thisSize=new Object();
+	function getSize(){
+		thisSize.width=document.body.clientWidth;
+		thisSize.height=document.body.clientHeight;
+		return thisSize;
+	}
+	
+	
+	// -->
+	</script>
+        <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+        <!-- BEGIN Browser History required section ${useBrowserHistory}>
+        <link rel="stylesheet" type="text/css" href="history/history.css" />
+        <script type="text/javascript" src="history/history.js"></script>
+        <!${useBrowserHistory} END Browser History required section -->  
+            
+        <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript">
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "${version_major}.${version_minor}.${version_revision}";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "${expressInstallSwf}";
+            var flashvars = {};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "${bgcolor}";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "${application}";
+            attributes.name = "${application}";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "${swf}.swf", "flashContent", 
+                "${width}", "${height}", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script>
+    </head>
+    <body>
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+        <div id="flashContent">
+            <p>
+                To view this page ensure that Adobe Flash Player version 
+                ${version_major}.${version_minor}.${version_revision} or greater is installed. 
+            </p>
+            <script type="text/javascript"> 
+                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+            </script> 
+        </div>
+        
+        <noscript>
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="${width}" height="${height}" id="${application}">
+                <param name="movie" value="${swf}.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="${bgcolor}" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <param name="allowFullScreen" value="true" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="${swf}.swf" width="${width}" height="${height}">
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="${bgcolor}" />
+                    <param name="allowScriptAccess" value="sameDomain" />
+                    <param name="allowFullScreen" value="true" />
+                <!--<![endif]-->
+                <!--[if gte IE 6]>-->
+                    <p> 
+                        Either scripts and active content are not permitted to run or Adobe Flash Player version
+                        ${version_major}.${version_minor}.${version_revision} or greater is not installed.
+                    </p>
+                <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflashplayer">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                    </a>
+                <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+        </noscript>     
+   </body>
+</html>
